@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepawali SEO-Domain Age Checker</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Palanquin+Dark:wght@700&family=Poppins&display=swap');
+    
+    *{
+        font-family: 'Poppins', sans-serif;
+    }
+    .accordion-item{
+        box-shadow: 0 1px 11px 0 rgb(181, 181, 181);
+        margin-bottom: 8px;
+        padding: 5px;
+    }
+    .main-wrapper{
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        box-shadow: 0 1px 11px 0 rgb(181, 181, 181);
+        overflow: auto;
+    }
+    .container{
+        margin-top: 20px !important ;
+        width: min-content;
+    }
+    .main-wrapper textarea {
+        border: none !important;
+        overflow: auto !important;
+        outline: none;
+        padding: 14px !important;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+
+    }
+    .btn-primary{
+        background-color: #3b8ffc;
+        border: 1px solid #3b8ffc;
+    }
+    .btn-primary:hover{
+        background-color: #4294ff;
+        border: 1px solid #4294ff;
+    }
+    
+    
+
+    .links{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .links a{
+        text-decoration: underline;
+        color: black;
+        margin-right: 16px;
+        font-size: 11px;
+    }
+
+    @media (max-width:700px){
+        .links {
+            display: none;
+        }
+        body{
+            margin-top: 9px;
+        }
+    }
+
+    .navbar-links {
+        height: 80%;
+        margin-left: 20vw;
+        width: min-content;
+    }
+
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    white-space: nowrap;
+    display: inline;
+    text-decoration: none;
+    color: black;
+    padding: 1rem;
+}
+
+
+
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+        margin-left: 0px;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links ul li {
+        text-align: center;
+    }
+
+    .navbar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links li:hover {
+    background-color: rgb(207, 206, 206);
+}
+    .navbar-links.active {
+        display: flex;
+    }
+}
+
+.td-tagline-text{
+    letter-spacing: 1.8px;
+    font-size: 12px;
+    font-family: serif;
+    color: #777;
+    padding-top: 2px;
+    padding-bottom: 10px;
+    margin-top: 1px !important;
+}
+    .menu-tab,.counter-tab{
+        margin-top: 10px;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .menu-tab button{
+        margin-right: 7px;
+        margin-bottom: 40px;
+    }
+    .accordion{
+        margin-bottom: 200px;
+    }
+    .unregistered-span{
+        padding: 3px;
+        border: 1px red solid;
+        color: white;
+        background-color: red;
+        border-radius: 4px
+    }
+    .registered-span{
+        padding: 3px;
+        border: 1px green solid;
+        color: white;
+        background-color: green;
+        border-radius: 4px
+    }
+    .horizontal{
+        display: flex;
+        flex-direction: row;
+        width: 30%;
+        justify-content: space-between;
+    }
+
+
+</style>
+<body>
+    <div class="header-div">
+        <div class="links">     
+            <p><a href="https://www.deepawaliseotips.com/about-us/">About us</a></p>
+            <p><a href="https://www.deepawaliseotips.com/digital-marketing-and-seo-consultancy-services-pavan-agrawal/">SEO Consultancy Services</a></p>
+            <p><a href="https://www.deepawaliseotips.com/privacy-policy/">Privacy Policy</a></p>
+            <p><a href="https://www.deepawaliseotips.com/disclaimer/">Disclaimer</a></p>
+            <p><a href="https://www.deepawaliseotips.com/terms-conditions/">Terms & Conditions</a></p>
+            <p><a href="https://www.deepawaliseotips.com/contact-us/">Contact Us</a></p>
+        </div>
+        <div class="title">
+            <center>
+                <h1 style="font-family: serif;font-size: 5vw;">SEO Pavan Agrawal</h1>
+                <span class="td-tagline-text">Remember Observe and React</span>
+            </center>
+            <hr>
+            
+        </div>
+        <nav class="navbar">
+            <a href="#" class="toggle-button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </a>
+            
+
+            <div class="navbar-links">
+                <ul>
+                    <li>
+                        <a href="https://www.deepawaliseotips.com/">HOME</a>
+                    </li>
+                    <li>
+                        <a href="https://www.deepawaliseotips.com/category/start-a-blog/">START A BLOG</a>
+                    </li>
+                    <li>
+                        <a href="https://www.deepawaliseotips.com/category/hosting/">HOSTING</a>
+                    </li>
+                    
+                    <li>
+                        <a href="https://www.deepawaliseotips.com/tools/">TOOLS [PAVAN AGRAWAL]</a>
+                    </li>
+                    <li>
+                        <a href="https://twittertrends.deepawaliseotips.com/">TWITTER TRENDS</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <hr>
+    <br>
+    <div class="container">
+        <div class="header-tab">
+            <h3>Domain Age Checker</h3>
+        </div>
+
+        <div class="main-wrapper">
+            <textarea id="domainsArea" contenteditable="true" style="width:900px;height:330px;border:1px solid;overflow-y:scroll" name="hindi" placeholder="Enter Upto 10 domains (with http://)"></textarea>    
+        </div>
+
+
+        <div class="menu-tab" id="tab">
+            <button class="btn btn-primary" type="button" id="load-btn" onclick="fetch_domains()">Check Age</button>
+        </div>
+        
+        <div class="accordion" id="accordionExample"></div>
+
+    </div>
+    
+</body>
+<script>
+    let flag = false;
+    let data;
+    const fetch_domains = ()=>{
+        let data = document.getElementById("domainsArea").value.trim( );
+        let domains = data.split('\n').map((ele)=>{
+            try{
+                let domain = (new URL(ele.trim()));
+                domain = domain.hostname.replace('www.','');
+                if(domain==''){
+                    alert("Please enter a valid URL")
+                    flag = true;
+                }
+                else{
+                    flag = false
+                }
+                return domain
+            }
+            catch{
+                flag = true;
+                alert("Please enter a valid URL")
+            }
+            
+        })
+
+        if(!flag){
+            get_domain_data(domains)
+        }
+
+        flag=true;
+
+    }
+
+    const get_domain_data = async (domains_data)=>{
+        document.getElementById('load-btn').disabled = true;
+        document.getElementById('load-btn').innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Loading...'
+        await fetch("https://mahesh5077.pythonanywhere.com/keywordSuggestions", {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                "keyword":"Elon Musk",
+                "country":"us"
+            }),
+        })
+        .then(
+            response => response.json()
+        )
+        .then(response_data=>{
+            document.getElementById('load-btn').disabled = false;
+            document.getElementById('load-btn').innerHTML = 'Check Age'
+            data = response_data
+        }
+        )
+
+        //const data = await response.json();
+        console.log(data['domain_data'])
+        const items = data['domain_data'].map((ele,idx)=>{
+                return `<div class="accordion-item">
+                <h2 class="accordion-header" id="heading${idx}">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse${idx}" aria-expanded="true" aria-controls="collapse${idx}">
+                    <div class="horizontal"><div>${Object.keys(ele)[0]}</div> </div>
+                </button>
+                </h2>
+                <div id="collapse${idx}" class="accordion-collapse collapse ${idx==0?'show':''}" aria-labelledby="heading${idx}" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table class="table table-bordered"">
+                        <tbody>
+                            <tr>
+                                <th>Domain Age: </th>
+                                <td>${ele[Object.keys(ele)[0]].age!=undefined?ele[Object.keys(ele)[0]].age:"N/A"}</td>
+                            </tr>
+                            <tr>
+                                <th>Domain Created Date: </th>
+                                <td>${ele[Object.keys(ele)[0]].creation_date!=undefined?ele[Object.keys(ele)[0]].creation_date:"N/A"}</td>
+                            </tr>
+                            <tr>
+                                <th>Domain Expiration Date: </th>
+                                <td>${ele[Object.keys(ele)[0]].expiration_date!=undefined?ele[Object.keys(ele)[0]].expiration_date:'N/A'}</td>
+                            </tr>
+                            <tr>
+                                <th>Domain Last Updated: </th>
+                                <td>${ele[Object.keys(ele)[0]].updated_date!=undefined?ele[Object.keys(ele)[0]].updated_date:'N/A'}</td>
+                            </tr>
+                            <tr>
+                                <th>Registrar: </th>
+                                <td>${ele[Object.keys(ele)[0]].registrar!=undefined?ele[Object.keys(ele)[0]].registrar:'N/A'}</td>
+                            </tr>
+                            <tr>
+                                <th>Name Server: </th>
+                                <td>${ele[Object.keys(ele)[0]].name_servers!=undefined?ele[Object.keys(ele)[0]].name_servers:'N/A'}</td>
+                            </tr>
+                            <tr>
+                                <th>IP Address: </th>
+                                <td>${ele[Object.keys(ele)[0]].ip_address!=undefined?ele[Object.keys(ele)[0]].ip_address:'N/A'}</td>
+                            </tr>
+                            <tr>
+                                <th>WayBack/ Archive.org: </th>
+                                <td>${ele[Object.keys(ele)[0]].archive!=undefined?`<a href=${ele[Object.keys(ele)[0]].archive}>History of Domain</a>`:`N\A`}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                </div>
+                </div>
+            </div>`
+            
+        }).join('')
+        document.getElementById('accordionExample').innerHTML = items;
+
+    }
+</script>
+
+<script src="https://kit.fontawesome.com/411329c929.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
+
+</html>
